@@ -7,12 +7,14 @@
 class IframeHelper {
  
 
+    static ifrm;
+
     createIframe() {
 
         //create Iframe
-        this.ifrm = document.createElement("iframe");
-        this.ifrm.onload = this.iFrameLoad;
-        document.getElementById("content").append(this.ifrm);
+        IframeHelper.ifrm = document.createElement("iframe");
+        IframeHelper.ifrm.onload = this.iFrameLoad;
+        document.getElementById("content").append(IframeHelper.ifrm);
     }
 
     iFrameLoad = () => {
@@ -20,10 +22,10 @@ class IframeHelper {
     }
 
 
-    loadPage(_url) {
+    static loadPage(_url) {
  
-        this.ifrm.src = 'courseA/'+ _url;
-        document.getElementById("curPage").innerText = " > " + 'courseA/'+ _url;
+        IframeHelper.ifrm.src = 'courseA/'+ _url;
+       
 
     }
 

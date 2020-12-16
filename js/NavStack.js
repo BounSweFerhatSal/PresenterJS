@@ -5,8 +5,9 @@
 *
 * this class uses a couple of stacks , one for next items , one for previous items 
 *  
-*
 */
+
+// !!!!!!!!!!!!! deprecated !!!!!!!!!!!!
 
 class NavStack {
 

@@ -7,12 +7,13 @@
 */
 class Helper {
 
-    createLi(id, text, link) {
+    createLi(id, text, concept,page) {
 
         let a = document.createElement('a');
         // a.href = link;
         a.text = text;
-        a.setAttribute('data-page', link);
+        a.setAttribute('data-concept', concept);
+        a.setAttribute('data-page', page);
 
 
         let li = document.createElement('li');

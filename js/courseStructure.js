@@ -46,7 +46,7 @@ const conceptC = function () {
 
 const conceptMixed = function () {
     return {
-        "id": "conceptA",
+        "id": "conceptMixed",
         "arrPage": [
             'chA/secA/p1.html',
             'chB/secA/d1.html',
@@ -59,7 +59,7 @@ const conceptMixed = function () {
 
 const conceptOyOY = function () {
     return {
-        "id": "conceptoyy",
+        "id": "conceptOyOy",
         "arrPage": [
             'chA/secA/p1.html',
             '*conceptC',

@@ -48,6 +48,10 @@ class Stack {
         return this.items.length == 0;
     }
 
+    getItemCount(){
+        return this.items.length;
+    }
+
     logStack() {
         console.log("\nContents of stack:\n------------")
         this.items.forEach(item => {
