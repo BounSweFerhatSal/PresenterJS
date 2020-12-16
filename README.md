@@ -19,7 +19,8 @@ This is a **pure javascript** , html , css project which is a page navigator tha
 - `Helper` provides some common functionalities for reuse , in order to make code more readable.
 - `IFrameHelper` creates the Iframe and handles page loading.
 - `Stack` : The pure js stack implemention.
-- `NavStack` contains 2 stacks for previous pages and remaining ones, plus the current page.All navigiation is handled by this class
+- `Course` Creates and Provides the Concepts
+- `Concept` Represents a concept as a double linked list Node 
 - `TOC` :  Table Of Concept class , creates TOC UI and handles the events.
 
 
