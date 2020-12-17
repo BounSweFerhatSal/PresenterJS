@@ -102,7 +102,7 @@ class Test {
         let link = Helper.select('a[data-concept="conceptB"][data-page="2"]')[0];
         link.click();
 
-        //now we have to be in Cıncept B 
+        //now we have to be in Concept B 
         //actual : 
         let curPage_afterToc = this._app.currentConcept.pages[this._app.currentConcept.index];
         //get result 1 
@@ -121,7 +121,7 @@ class Test {
         let exp_ReturnPage = this._app.courseObj.concepts[1].pages[2];
 
 
-        //Apply Next 6 times : goto conceptc -1.page
+        //Apply Next 5 times : goto conceptB 3.page
         for (let index = 0; index < 5; index++) {
             let btnn = document.getElementById("btnNext");
             btnn.click();
