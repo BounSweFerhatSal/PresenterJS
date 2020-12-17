@@ -11,10 +11,13 @@ class IframeHelper {
 
     createIframe() {
 
-        //create Iframe
-        IframeHelper.ifrm = document.createElement("iframe");
-        IframeHelper.ifrm.onload = this.iFrameLoad;
-        document.getElementById("content").append(IframeHelper.ifrm);
+        //create Iframe if not exists ( in test case it will be already exits)
+        if (IframeHelper.ifrm == undefined) {
+
+            IframeHelper.ifrm = document.createElement("iframe");
+            IframeHelper.ifrm.onload = this.iFrameLoad;
+            document.getElementById("content").append(IframeHelper.ifrm);
+        }
     }
 
     iFrameLoad = () => {

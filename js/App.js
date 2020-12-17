@@ -33,12 +33,14 @@ class App {
   }
 
   bindNavigations() {
+
     document.getElementById("btnNext").onclick = this.nav_next;
     document.getElementById("btnPrev").onclick = this.nav_prev;
     document.getElementById("btnReturn").onclick = this.nav_return;
   }
 
   nav_next = () => {
+
     let ret = this.currentConcept.next();
     // ret can be equal to undefined , a Concept Instance or a string ( page )
 
@@ -76,6 +78,7 @@ class App {
   };
 
   nav_prev = () => {
+
     let ret = this.currentConcept.prev();
     // ret can be equal to undefined , a Concept Instance or a string ( page )
 
@@ -104,6 +107,7 @@ class App {
   };
 
   nav_return = () => {
+
     if (this.navStack.getItemCount() == 1) {
       //We are in stil main course , no up level
       //do nothing
@@ -116,16 +120,17 @@ class App {
       this.currentConcept = this.navStack.peek();
       //Show current page of concept ( that is where we were exactly in on up level)
       this.currentConcept.show();
-      
+
       //diable butyon if we are at root 
-      if (this.navStack.getItemCount() ==1) {
+      if (this.navStack.getItemCount() == 1) {
         Helper.disable("btnReturn");
-      } 
+      }
 
     }
   };
 
   Toc_Page_Click = (event) => {
+    
     let targetConcept = event.target.getAttribute("data-concept");
     let pageindex = event.target.getAttribute("data-page");
     if (pageindex == "") return;
