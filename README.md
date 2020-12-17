@@ -239,7 +239,7 @@ All test results are printed to the console. They all passes , to examine the as
 That's All.
 
 Ferhat SAL.
-Boğaziçi Univercity 
+Boğaziçi University 
 MS. in Software Engineering.
 
 
