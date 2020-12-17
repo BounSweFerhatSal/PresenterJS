@@ -10,9 +10,7 @@ class TOC {
     constructor(pageClick_callBack, courseObj) {
 
 
-        //init helper 
-        this.hp = new Helper();
-
+        
         this.page_Click = pageClick_callBack;
 
 
@@ -24,18 +22,18 @@ class TOC {
         courseObj.concepts.forEach(cons => {
 
             //append a li for each concept
-            let conceptLi = this.hp.createLi("", cons.id, cons.id , "#");
+            let conceptLi = Helper.createLi("", cons.id, cons.id , "#");
             this.root.append(conceptLi);
 
             //append a UL for this concept
-            let conceptUl = this.hp.createUl(cons.id, "menu")
+            let conceptUl = Helper.createUl(cons.id, "menu")
             conceptLi.append(conceptUl);
 
             //create page Li's in concept Ul
             let pgIndex = 0;
             cons.pages.forEach(page => {
 
-                let pageLi = this.hp.createLi("", page, cons.id, pgIndex);
+                let pageLi = Helper.createLi("", page, cons.id, pgIndex);
                 conceptUl.append(pageLi);
 
                 //add click event handler : 

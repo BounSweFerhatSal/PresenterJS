@@ -57,15 +57,26 @@ class Concept {
 
         let _url = this.pages[this.index];
         IframeHelper.loadPage(_url);
-        document.getElementById("curConcept").innerText = " Concept : " + this.id;
-        document.getElementById("curPage").innerText = " Page : " + 'courseA/' + _url;
+        document.getElementById("curConcept").innerText =  this.id;
+        document.getElementById("curPage").innerText =  _url;
 
+        //arrange button states : 
+        Helper.disable("btnPrev");
+        Helper.disable("btnNext");
+        
+       if ((this.index > 0 || this.prevConcept) != undefined) {
+           Helper.enable("btnPrev");
+       } 
+       if ((this.index < this.pages.length - 1) || this.nextConcept != undefined ) {
+           Helper.enable("btnNext");
+       }
+       
     }
 
 
 
     log() {
-        console.log("concept : " + this.id + " pages: " + this.pages);
+        console.log("CONCEPT : " + this.id + " pages: " + this.pages);
     }
 
 }

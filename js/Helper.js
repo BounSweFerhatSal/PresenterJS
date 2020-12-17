@@ -7,7 +7,7 @@
 */
 class Helper {
 
-    createLi(id, text, concept,page) {
+    static createLi(id, text, concept,page) {
 
         let a = document.createElement('a');
         // a.href = link;
@@ -24,7 +24,7 @@ class Helper {
         return li;
 
     }
-    createUl(id, classname) {
+    static createUl(id, classname) {
 
         let ul = document.createElement('ul');
         ul.id = id;
@@ -34,19 +34,19 @@ class Helper {
     }
 
     // css selector
-    select(selector) {
+    static select(selector) {
 
         return document.querySelectorAll(selector);
 
     }
 
-    enable(id) {
+    static enable(id) {
 
         let elem = document.getElementById(id);
         elem.disabled ="";
 
     }
-    disable(id) {
+    static disable(id) {
 
         let elem = document.getElementById(id);
         elem.disabled ="disabled";
