@@ -2,7 +2,7 @@
 
 This project is an Assignment for the SP.TP.DYNAMIC WEB Course. 
 
-This is a **pure javascript** , html , css project which is a page navigator that **allow user to navigate through given html pages** stored on local within a structure.All code is dveleped by Ferhat SAL - Boğaziçi University , MS. Software Engineering. 2018719219.
+This is a **pure javascript** , html , css project which is a page navigator that **allow user to navigate through given html pages** stored on local within a structure.All code is developed by Ferhat SAL - Boğaziçi University , MS. Software Engineering. 2018719219.
 
 ## Overall Description : 
 
