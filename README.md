@@ -51,7 +51,7 @@ After gathering concept data , the Course object creates a new `Concept` object 
 
 ### 2. Create the TOC object 
 
-The `TOC`object is implemented in  `Toc.js` is simply creates nested Unordered Lists UL html elements in the side bar of the app using the Course object created in the previous step. It **assigns the click events of each page to a call back function** , which is used in `App` object. All page elements have `data-concept` and `data-page` in order to specify which page of which concept it will show when it clicked.
+The `TOC`object is implemented in  `Toc.js` is simply **creates nested Unordered Lists UL html elements** in the side bar of the app using the Course object created in the previous step. It **assigns the click events of each page to a call back function** , which is used in `App` object. All page **elements have `data-concept` and `data-page` in order to specify which page of which concept** it will show when it clicked.
 
 ### 3. Create the Navigation Stack 
 
@@ -77,9 +77,9 @@ The last level of initializing the App object is simply showing the current conc
 
 ### 5. Handle Navigation Button Clicks 
 
-The **`nav_next` and the `nav_prev` functions** of the App class **handles the navigation** through the concept and the course. When user clicks to next or previous buttons , app calls the  **next()** or **prev()** function of the concept object which is marked by current concept prop of the app. These functions are set their page index , shows the page and return either a page or the node connections such as `prevConcept` or `nextConcept` , of course if these connections are not set it returns `undefined`. 
+The **`nav_next` and the `nav_prev` functions** of the App class **handles the navigation** through the concept and the course. When user clicks to next or previous buttons , app calls the  **next()** or **prev()** function of the concept object which is marked by current concept prop of the app. **These functions are set their page index , shows the page and return either a page or the node connections such as `prevConcept` or `nextConcept`** , of course if these connections are not set it returns `undefined`. 
 
-Regarding to the type of this return value , app decides either to **jump to the linked course** if the result is an instance of Concept object, or to **return to one level up** in the stack if result is undefined. The other result alternative is getting a string which is a page link , but app ignores this case since there is nothing to do if the return is a page , because this means concept did not came to head or end of concept.
+Regarding to the type of this return value , **app decides either to jump to the linked course** if the result is an instance of Concept object, or to **return to one level up** in the stack if result is undefined. The other result alternative is getting a string which is a page link , but app ignores this case since there is nothing to do if the return is a page , because this means concept did not came to head or end of concept.
 
 If the `prevConcept` of the concept is undefined and user clicks to prev button , app does nothing , because this can be one of the following situations:
 - This is a review concept , and user came to the head of it
@@ -110,7 +110,7 @@ if (ret instanceof Concept) {
 
 ### 6. Handle TOC page clicks 
 
-App uses the `Toc_Page_Click` call back function as click event handler of TOC links. But the links does not have any href attribute , instead TOC object sets two  `data-concept` and `data-page`while it is creating the links , hence we can get the target concept and page data belongs to link clicked by the user by below code :
+App uses the **`Toc_Page_Click` call back function as click event handler of TOC links.** But the links does not have any href attribute , instead TOC object sets two  `data-concept` and `data-page`while it is creating the links , hence we can get the target concept and page data belongs to link clicked by the user by below code :
 
 ```js
     let targetConcept = event.target.getAttribute("data-concept");
@@ -140,7 +140,7 @@ After gathering the target , app traverse the course objects concepts to find th
 
 ### 7. Handling Return Button Click
 
-App handles the retun button click in `nav_return` function of app class. This function simply checks if the user is in main course or in a review level then just call the pop() of navStack objcet and sets the top most one as currentConcept as shown below : 
+App handles the return button click in **`nav_return` function of app class.** This function simply **checks if the user is in main course or in a review level then just call the pop() of navStack objcet and sets the top most one as currentConcept** as shown below : 
 
 
 ```js
