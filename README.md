@@ -17,12 +17,12 @@ Project has only one HTML Page : index.html. All the scripts are referenced here
 
 ## Classes : 
 
-- `App` :  the main logic 
+- `App` :  **the main logic** 
 - `Helper` provides some common functionalities for reuse , in order to make code more readable.
 - `IFrameHelper` creates the Iframe and handles page loading.
-- `Stack` : The pure js stack implemention.
+- `Stack` : The pure js **stack implemention.**
 - `Course` Creates and Provides the Concepts
-- `Concept` Represents a concept as a double linked list Node 
+- `Concept` Represents a concept as a **double linked list Node** 
 - `TOC` :  Table Of Concept class , creates TOC UI and handles the events.
 - `Test` :  Apply Test without a test framework. 
 
@@ -34,20 +34,20 @@ Application starts with  the below  code in the main.js  :
 let app = new App();
 ```
 
-This line is creating an instance of the App class in APP.js , and the App class starts the logic in it's constructor.
+This line is **creating an instance of the App class** in APP.js , and the App class starts the logic in it's constructor.
 
 The main logic can be explained as : 
 
 ### 1. Create the Course Object & Concept Objects : 
 
-The `Course` object first calls the `course` function which is given in the `courseStructure.js` in order to obtain the **name of the concepts** functions and their order. Then **it calls the corresponding concept function** for each concept to obtain the pages of the concepts. To call the concept function specified in the course functions returned object , I'm using `eval` after removing the '*' char from function name. For example for given function name as a string : '*conceptB' , I use `eval('concept' + '()')` statement. The real code implementation from the app is below : 
+The `Course` object first calls the `course` function which is given in the `courseStructure.js` in order to obtain the **name of the concepts** functions and their order. Then **it calls the corresponding concept function** for each concept **to obtain the pages of the concepts**. To call the concept function specified in the course functions returned object , I'm **using `eval` after removing the '*' char from function name**. For example for given function name as a string : '*conceptB' , I use `eval('concept' + '()')` statement. The real code implementation from the app is below : 
 
 ```js 
         //call concept function and gather pages:
         let conseptData = eval(fnc.substring(1) + "()");
 ```    
 
-After gathering concept data , the Course object creates a new `Concept` object which is implemented in the `Concept.js`. The course can be though as a `double linked list` and the concept object can be thought as a `double linked list node`. Then course object add all pages to that `Concept` object calling `addpages`. The crucial thing here if there is another concept reference instead of a normal page in the pages data , I call the `addpages` function recursively in order to add the pages of the sub concept rather then concepts its self as page mistakenly.  
+After gathering concept data , the Course object creates a new `Concept` object which is implemented in the `Concept.js`. **The course can be though as a `double linked list` and the concept object can be thought as a `double linked list node`.** Then course object add all pages to that `Concept` object calling `addpages`. The crucial thing here if there is another concept reference instead of a normal page in the pages data , I call the `addpages` function recursively in order to add the pages of the sub concept rather then concepts its self as page mistakenly.  
 
 ### 2. Create the TOC object 
 
@@ -55,7 +55,7 @@ The `TOC`object is implemented in  `Toc.js` is simply creates nested Unordered L
 
 ### 3. Create the Navigation Stack 
 
-The `Stack` class is  implemented in `Stack.js`. Logic follows with creating a stack in order to hold 'review levels'. When user passes to a new concept, app pushes that concept in to the stack and marks it as `currentConcept`. if the stack has only one concept , that means user is at root level , in other words it did not in a 'review' level. If there are more then once concepts in stack the top level element of stack is considered as the current level in our logic. The initialization of this stack in code is below : 
+The `Stack` class is  implemented in `Stack.js`. Logic follows with creating a **stack in order to hold 'review levels'.** When user passes to a new concept, **app pushes that concept in to the stack and marks it as `currentConcept`.** if the stack has only one concept , that means user is at root level , in other words it did not in a 'review' level. If there are more then once concepts in stack the top level element of stack is considered as the current level in our logic. The initialization of this stack in code is below : 
 
 ```js 
 //create Navigation Stack :
@@ -77,7 +77,7 @@ The last level of initializing the App object is simply showing the current conc
 
 ### 5. Handle Navigation Button Clicks 
 
-The `nav_next` and the `nav_prev` functions of the App class handles the navigation through the concept and the course. When user clicks to next or previous buttons , app calls the  **next()** or **prev()** function of the concept object which is marked by current concept prop of the app. These functions are set their page index , shows the page and return either a page or the node connections such as `prevConcept` or `nextConcept` , of course if these connections are not set it returns `undefined`. 
+The **`nav_next` and the `nav_prev` functions** of the App class **handles the navigation** through the concept and the course. When user clicks to next or previous buttons , app calls the  **next()** or **prev()** function of the concept object which is marked by current concept prop of the app. These functions are set their page index , shows the page and return either a page or the node connections such as `prevConcept` or `nextConcept` , of course if these connections are not set it returns `undefined`. 
 
 Regarding to the type of this return value , app decides either to **jump to the linked course** if the result is an instance of Concept object, or to **return to one level up** in the stack if result is undefined. The other result alternative is getting a string which is a page link , but app ignores this case since there is nothing to do if the return is a page , because this means concept did not came to head or end of concept.
 
